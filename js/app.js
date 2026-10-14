@@ -27,24 +27,19 @@ function addFavorite(event) {
     };
 
     favorites.push(newFavorite);
+    saveFavorites();
     form.reset();
     displayFavorites();
 }
 
 form.addEventListener('submit', addFavorite);
 
-function displayFavorites() {
-    searchInput.value = '';
-    categoryFilter.value = 'all';
-    searchFavorites();
-    }
-
-displayFavorites();
 
 function deleteFavorite(index) {
     const favorite = favorites[index];
     if (confirm(`Delete "${favorite.name}"?`)) {
         favorites.splice(index, 1);
+        saveFavorites();
         searchFavorites();
     }
 }
@@ -72,7 +67,7 @@ function searchFavorites() {
         favoritesList.innerHTML = '<p class="empty-message">No favorites match your search criteria.</p>';
         return;
     }
-    
+
     filtered.forEach(function(favorite) {
         const index = favorites.indexOf(favorite);
         const stars = '⭐'.repeat(favorite.rating);
@@ -88,3 +83,32 @@ function searchFavorites() {
             </div>`;
     });
 }
+
+function saveFavorites() {
+    try {
+        localStorage.setItem('localFavorites', JSON.stringify(favorites));
+    } catch (error) {
+        alert('Unable to save favorites. Storage may be disabled.');
+    }
+}
+function loadFavorites() {
+    try {
+        const saved = localStorage.getItem('localFavorites');
+        if (saved) {
+            favorites = JSON.parse(saved);
+        } else {
+            favorites = [];
+        }
+    } catch (error) {
+        favorites = [];
+    }
+}
+
+function displayFavorites() {
+    searchInput.value = '';
+    categoryFilter.value = 'all';
+    searchFavorites();
+    }
+
+    loadFavorites();
+    displayFavorites();

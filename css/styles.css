@@ -116,6 +116,9 @@ textarea {
     width: 100%;
     font: inherit;
     margin-bottom: var(--space-md);
+    padding: var(--space-sm);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
 }
 
 /* ==========================
@@ -124,6 +127,23 @@ textarea {
 .btn-danger {
    background-color: var(--color-danger);
    color: var(--color-surface);
+}
+
+button {
+   font: inherit;
+   padding: var(--space-sm) var(--space-lg);
+   border: none;
+   border-radius: var(--radius-md);
+   cursor: pointer;
+}
+
+.btn-primary {
+   background-color: var(--color-accent);
+   color: var(--color-surface);
+}
+
+.btn-primary:hover {
+   background-color: var(--color-accent-strong);
 }
 
 /* ==========================
