@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Molle:ital@0;1&display=swap');
 /* ==========================
    1. RESET
    ========================== */
@@ -20,15 +21,14 @@
    ========================== */
    :root {
     /* Color */
-    --color-accent: #4d1979;
-    --color-accent-strong: #321052;
-    --color-text: #172033;
-    --color-muted: #657186;
-    --color-border: #d9dfeb;
-    --color-bg: #f7f8fb;
-    --color-surface: #ffffff;
-    --color-surface-alt: #f1f5f9;
-    --color-danger: #b42318;
+    --color-accent: #cd7b95;
+    --color-accent-strong: #bd6087;
+    --color-text: #5e4f4f;
+    --color-muted: #504444;
+    --color-border: #e3d4eb;
+    --color-bg: #e1e8cf;
+    --color-surface: #c1d6a2;
+    --color-surface-alt:#f7fff4;
 
       /* Spacing - a modular scale */
       --space-sm: 0.5rem;
@@ -46,7 +46,8 @@
 
       /* Layout*/
       --page-width: 64rem;
-      --font-stack: system-ui, 'Segoe UI', Tahoma, sans-serif;
+      --font-stack-h: 'Molle', cursive;
+      --font-stack-b: 'Times New Roman', serif;
       --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
       --radius-md: 8px;
    }
@@ -59,12 +60,12 @@
       color: var(--color-text);
       font-size: var(--text-base);
       line-height: var(--leading-body);
-      font-family: var(--font-stack);
+      font-family: var(--font-stack-b);
    }
 
-h1 { font-size: var(--text-h1); line-height: var(--leading-heading); }
-h2 {font-size: var(--text-h2); line-height: var(--leading-heading); }
-h3 {font-size: var(--text-h3); line-height: var(--leading-heading); }
+h1 { font-size: var(--text-h1); line-height: var(--leading-heading); font-family: var(--font-stack-h); }
+h2 {font-size: var(--text-h2); line-height: var(--leading-heading); font-family: var(--font-stack-h); }
+h3 {font-size: var(--text-h3); line-height: var(--leading-heading); font-family: var(--font-stack-b); }
 
 h1, h2, h3 { margin-bottom: var(--space-sm); }
 p { margin-bottom: var(--space-md); }
@@ -91,7 +92,7 @@ a:focus-visible {
    ========================== */
    header {
       padding: var(--space-lg);
-      background-color: var(--color-surface-alt);
+      background-color: var(--color-surface);
       margin-bottom: var(--space-lg);
    }
    
@@ -125,7 +126,7 @@ textarea {
    8. BUTTONS
    ========================== */
 .btn-danger {
-   background-color: var(--color-danger);
+   background-color: var(--color-accent-strong);
    color: var(--color-surface);
 }
 
@@ -149,6 +150,13 @@ button {
 /* ==========================
    9. SEARCH
    ========================== */
+.controls-section {
+   background-color: var(--color-bg);
+   padding: var(--space-md);
+   border-radius: var(--radius-md);
+   border: 2px solid var(--color-border);
+   box-shadow: var(--shadow-sm);
+}
 
 /* ==========================
    10. CARDS
